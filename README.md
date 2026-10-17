@@ -24,3 +24,38 @@ Instrukcja uruchomienia:
 1. Sklonuj repozytorium: `git clone https://github.com/pzx126084/PZL-Sledzinski-Patryk.git`
 2. Zbuduj projekt: `dotnet build src/DemoApp/DemoApp.csproj`
 3. Uruchom aplikację: `dotnet run --project src/DemoApp/DemoApp.csproj`
+
+## Model domenowy
+
+### Główne encje i ich odpowiedzialność
+* **Project** — reprezentuje projekt użytkownika, który grupuje powiązane ze sobą zadania.
+* **TaskItem** — reprezentuje pojedyncze zadanie należące do projektu (posiada status, opcjonalny opis i termin).
+* **Comment** — reprezentuje komentarz przypisany do konkretnego zadania.
+
+### Najważniejsze relacje
+* **Project (1) ➔ (N) TaskItem** — jeden projekt może zawierać wiele zadań, każde zadanie należy do jednego projektu.
+* **TaskItem (1) ➔ (N) Comment** — jedno zadanie może posiadać wiele komentarzy, każdy komentarz dotyczy jednego zadania.
+
+### Diagram
+
+Project {
+        int Id PK
+        string Name "required"
+        string Description "optional"
+        DateTime CreatedAt
+    }
+    TaskItem {
+        int Id PK
+        string Title "required"
+        string Description "optional"
+        DateTime DueDate "optional"
+        TaskItemStatus Status
+        int ProjectId FK
+    }
+    Comment {
+        int Id PK
+        string Content "required"
+        string AuthorName "required"
+        DateTime CreatedAt
+        int TaskItemId FK
+    }
