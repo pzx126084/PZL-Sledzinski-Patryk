@@ -14,3 +14,13 @@ Repozytorium demonstracyjne przygotowane w ramach pierwszego zadania laboratoryj
 
 ## Status
 Projekt znajduje się obecnie na etapie przygotowania środowiska.
+
+## Uruchomienie i przygotowanie środowiska
+Do pobrania i uruchomienia projektu wymagane są:
+1. Git
+2. .NET 9.0 SDK
+
+Instrukcja uruchomienia:
+1. Sklonuj repozytorium: `git clone https://github.com/pzx126084/PZL-Sledzinski-Patryk.git`
+2. Zbuduj projekt: `dotnet build src/DemoApp/DemoApp.csproj`
+3. Uruchom aplikację: `dotnet run --project src/DemoApp/DemoApp.csproj`
