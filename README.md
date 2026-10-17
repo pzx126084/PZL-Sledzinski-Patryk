@@ -38,7 +38,12 @@ Instrukcja uruchomienia:
 
 ### Diagram
 
-Project {
+```mermaid
+erDiagram
+    Project ||--o{ TaskItem : "1:N"
+    TaskItem ||--o{ Comment : "1:N"
+
+    Project {
         int Id PK
         string Name "required"
         string Description "optional"
@@ -59,3 +64,4 @@ Project {
         DateTime CreatedAt
         int TaskItemId FK
     }
+```
